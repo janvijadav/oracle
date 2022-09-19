@@ -1,0 +1,13 @@
+create table kinjal(
+ deptno number(2,0),
+ dname varchar2(14),
+ loc varchar2(13),
+ constraint pk_kinjal primary key (deptno)
+);
+
+insert into kinjal (DEPTNO, DNAME, LOC) values(10, 'ACCOUNTING', 'NEW YORK');
+insert into kinjal values(20, 'RESEARCH', 'DALLAS');
+insert into kinjal values(30, 'SALES', 'CHICAGO');
+insert into kinjal values(40, 'OPERATIONS', 'BOSTON');
+
+select * from kinjal;
