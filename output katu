@@ -568,3 +568,297 @@ SQL>
 SQL> 
 SQL> 
 SQL> 
+SQL> select ename " KING" from emp; 
+
+ KING
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ KING
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> select sal "SALARIES" from emp;
+
+  SALARIES
+----------
+       800
+      1600
+      1250
+      2975
+      1250
+      2850
+      2450
+      3000
+      5000
+      1500
+      1100
+
+  SALARIES
+----------
+       950
+      3000
+      1300
+
+14 rows selected.
+
+SQL> select katu "ename",job "DESIGATION" from katu;
+select katu "ename",job "DESIGATION" from katu
+       *
+ERROR at line 1:
+ORA-00904: "KATU": invalid identifier
+
+
+SQL> select  empno,ename,job,sal,sal+100 from katu where job='MANAGER';
+
+     EMPNO ENAME      JOB              SAL    SAL+100
+---------- ---------- --------- ---------- ----------
+      7698 BLAKE      MANAGER         2850       2950
+      7782 CLARK      MANAGER         2450       2550
+      7566 JONES      MANAGER         2975       3075
+
+SQL> select empno,ename ,job,sal,(sal+1000)-4500 from katu;
+
+     EMPNO ENAME      JOB              SAL (SAL+1000)-4500
+---------- ---------- --------- ---------- ---------------
+      7839 KING       PRESIDENT       5000            1500
+      7698 BLAKE      MANAGER         2850            -650
+      7782 CLARK      MANAGER         2450           -1050
+      7566 JONES      MANAGER         2975            -525
+      7902 FORD       ANALYST         3000            -500
+      7369 SMITH      CLERK            800           -2700
+      7521 WARD       SALESMAN        1250           -2250
+      7900 JAMES      CLERK            950           -2550
+      7934 MILLER     CLERK           1300           -2200
+
+9 rows selected.
+
+SQL> 
+SQL> select empno, ename, sal ,(sal+100) from katu where ename='SCOTT';
+
+no rows selected
+
+SQL> 
+SQL> select empno,ename,sal,((sal+500)-300)/100 from katu;
+
+     EMPNO ENAME             SAL ((SAL+500)-300)/100
+---------- ---------- ---------- -------------------
+      7839 KING             5000                  52
+      7698 BLAKE            2850                30.5
+      7782 CLARK            2450                26.5
+      7566 JONES            2975               31.75
+      7902 FORD             3000                  32
+      7369 SMITH             800                  10
+      7521 WARD             1250                14.5
+      7900 JAMES             950                11.5
+      7934 MILLER           1300                  15
+
+9 rows selected.
+
+SQL> 
+SQL> select empno,ename,sal,(sal*5)/100 from katu;
+
+     EMPNO ENAME             SAL (SAL*5)/100
+---------- ---------- ---------- -----------
+      7839 KING             5000         250
+      7698 BLAKE            2850       142.5
+      7782 CLARK            2450       122.5
+      7566 JONES            2975      148.75
+      7902 FORD             3000         150
+      7369 SMITH             800          40
+      7521 WARD             1250        62.5
+      7900 JAMES             950        47.5
+      7934 MILLER           1300          65
+
+9 rows selected.
+
+SQL> 
+SQL> select empno,ename,sal,(sal*8)/100 from katu where job='SALESMAN';
+
+     EMPNO ENAME             SAL (SAL*8)/100
+---------- ---------- ---------- -----------
+      7521 WARD             1250         100
+
+SQL> 
+SQL> select empno,ename,sal,(sal*2)from katu;
+
+     EMPNO ENAME             SAL    (SAL*2)
+---------- ---------- ---------- ----------
+      7839 KING             5000      10000
+      7698 BLAKE            2850       5700
+      7782 CLARK            2450       4900
+      7566 JONES            2975       5950
+      7902 FORD             3000       6000
+      7369 SMITH             800       1600
+      7521 WARD             1250       2500
+      7900 JAMES             950       1900
+      7934 MILLER           1300       2600
+
+9 rows selected.
+
+SQL> 
+SQL> select empno,ename,sal,(sal*12)"ANNSAL" from katu;
+
+     EMPNO ENAME             SAL     ANNSAL
+---------- ---------- ---------- ----------
+      7839 KING             5000      60000
+      7698 BLAKE            2850      34200
+      7782 CLARK            2450      29400
+      7566 JONES            2975      35700
+      7902 FORD             3000      36000
+      7369 SMITH             800       9600
+      7521 WARD             1250      15000
+      7900 JAMES             950      11400
+      7934 MILLER           1300      15600
+
+9 rows selected.
+
+SQL> 
+SQL> select ename ||' '|| ename "Employee" from katu;
+
+Employee
+---------------------
+KING KING
+BLAKE BLAKE
+CLARK CLARK
+JONES JONES
+FORD FORD
+SMITH SMITH
+WARD WARD
+JAMES JAMES
+MILLER MILLER
+
+9 rows selected.
+
+SQL> 
+SQL> select ename ||' '|| job "Comp_NAME" from katu;
+
+Comp_NAME
+--------------------
+KING PRESIDENT
+BLAKE MANAGER
+CLARK MANAGER
+JONES MANAGER
+FORD ANALYST
+SMITH CLERK
+WARD SALESMAN
+JAMES CLERK
+MILLER CLERK
+
+9 rows selected.
+
+SQL> 
+SQL> select ename ||'is'||job||'and he is working in Dept No'|| deptno||'since'||hireadate from emp;
+
+select ename ||'is'||job||'and he is working in Dept No'|| deptno||'since'||hireadate from emp
+                                                                            *
+ERROR at line 1:
+ORA-00904: "HIREADATE": invalid identifier
+
+
+SQL> 
+SQL> select ename,sal,(sal*12)+nvl(comm,0)from katu;
+
+ENAME             SAL (SAL*12)+NVL(COMM,0)
+---------- ---------- --------------------
+KING             5000                60000
+BLAKE            2850                34200
+CLARK            2450                29400
+JONES            2975                35700
+FORD             3000                36000
+SMITH             800                 9600
+WARD             1250                15500
+JAMES             950                11400
+MILLER           1300                15600
+
+9 rows selected.
+
+SQL> 
+SQL> select distinct deptno from katu;
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+SQL> 
+SQL> select distinct deptno,job from katu;
+
+    DEPTNO JOB
+---------- ---------
+        20 MANAGER
+        20 CLERK
+        30 SALESMAN
+        30 CLERK
+        10 PRESIDENT
+        30 MANAGER
+        10 CLERK
+        10 MANAGER
+        20 ANALYST
+
+9 rows selected.
+
+SQL> 
+SQL> select * from katu where comm is null and job='MANAGER';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+
+SQL> 
+SQL> select * from katu where comm is not null;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+SQL> 
+SQL> select distinct job from katu;
+
+JOB
+---------
+CLERK
+SALESMAN
+PRESIDENT
+MANAGER
+ANALYST
+
+SQL> 
+SQL> select count(distinct job)from katu;
+
+COUNT(DISTINCTJOB)
+------------------
+                 5
+
+SQL> 
+SQL> 
+SQL> 
