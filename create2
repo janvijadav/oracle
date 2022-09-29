@@ -70,5 +70,57 @@ Select loc from dept;
 
 Select dname, loc from dept;
 
+formatting commands:
+
+select ename " KING" from emp; 
+
+select sal "SALARIES" from emp;
+
+select katu "ename",job "DESIGATION" from katu;
+
+select  empno,ename,job,sal,sal+100 from katu where job='MANAGER';
+
+select empno,ename ,job,sal,(sal+1000)-4500 from katu;
+
+select empno, ename, sal ,(sal+100) from katu where ename='SCOTT';
+
+select empno,ename,sal,((sal+500)-300)/100 from katu;
+
+select empno,ename,sal,(sal*5)/100 from katu;
+
+select empno,ename,sal,(sal*8)/100 from katu where job='SALESMAN';
+
+select empno,ename,sal,(sal*2)from katu;
+
+select empno,ename,sal,(sal*12)"ANNSAL" from katu;
+
+select ename ||' '|| ename "Employee" from katu;
+
+select ename ||' '|| job "Comp_NAME" from katu;
+
+select ename ||'is'||job||'and he is working in Dept No'|| deptno||'since'||hireadate from emp;
+
+select ename,sal,(sal*12)+nvl(comm,0)from katu;
+
+select distinct deptno from katu;
+
+select distinct deptno,job from katu;
+
+select * from katu where comm is null and job='MANAGER';
+
+select * from katu where comm is not null;
+
+select distinct job from katu;
+
+select count(distinct job)from katu;
+
+
+
+
+
+
+
+
+
 
 
