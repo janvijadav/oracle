@@ -52,7 +52,7 @@ Select empno, comm from emp;
 
 Select empno, mgr from emp;
 
-Select deptno from dept;
+Select empno, mgr from emp;
 
 Select empno, ename, job, mgr from emp;
 
@@ -69,6 +69,30 @@ Select deptno, ename, sal, job from emp;
 Select loc from dept;
 
 Select dname, loc from dept;
+
+
+basic query:2
+
+select * from emp where job='MNAGER';
+
+select * from emp where job='PRESIDENT';
+
+select * from emp where job='MANAGER' or job='CLARK';
+
+select * from emp where  job='MANAGER' and deptno=10;
+
+select * from emp where deptno=10;
+
+select * from emp where deptno in (20,30,40)and job <>'MANAGER';
+
+select * from emp where (job='MANAGER' and deptno=10) or job='ANALYST';
+
+select * from emp where job not in ('PRESIDENT','ANALYST','SALESMAN');
+
+select * from emp where job='CLARK' and deptno=10;
+
+
+
 
 formatting commands:
 
@@ -117,7 +141,71 @@ select count(distinct job)from katu;
 
 
 
+Joins, Subquery, Order by, Group by
 
+select * from emp order by hiredate desc;
+
+select * from emp order by hiredate asc;
+
+select deptno, dname from dept where deptno>20;
+
+select * from emp where comm>sal;
+
+select * from emp where comm<sal;
+
+select * from emp where sal>=500 and sal<=1500;
+OR
+select * from emp where sal between 500 and 1500;
+
+select * from emp where mgr in (7902, 7566, 7788);
+
+select * from emp where mgr between 7788 and 7902;
+
+select * from emp where ename like 'S%';
+
+select * from emp where ename='SCOTT';
+
+select * from emp where job='MANAGER' and length(ename)=5;
+
+select * from emp where mgr is null;
+
+select * from emp where job not like 'A%';
+
+select * from emp where mgr is not null;
+
+select * from emp where job in('Manager','Clerk') and
+deptno=10;
+
+select * from emp where job in('Manager','Salesman') and
+sal>1500;
+
+select job, avg(sal) from emp group by job;
+
+select job, avg(sal) from emp group by job having job not
+in('Manager');
+
+select job,avg(sal),deptno from emp group by job,deptno;
+
+select deptno,avg(sal),deptno from emp group by deptno;
+
+select job,sum(sal),avg(sal) from emp group by job having job
+not in('Salesman','Clerk','Manager');
+
+SELECT LOC FROM KATU E,DEPT D WHERE E.ENAME= 'SMITH' AND E.DEPTNO = D.DEPTNO;
+
+SELECT * FROM KATU E,DEPT D WHERE (DNAME='ACCOUNTING' OR DNAME='RESEARCH') AND E.DEPTNO = D.DEP
+TNO ORDER BY E.DEPTNO ASC;
+OR
+SELECT * FROM KATU E,DEPT D WHERE D.DNAME IN
+(‘ACCOUNTING’,’RESEARCH’) AND E.DEPTNO  = D.DEPTNO ORDER BY E.DEPTNO ASC;//
+
+SELECT * FROM KATU WHERE SAL>(Select SAL FROM KATU WHERE ENAME='BLAKE');
+
+select * from emp where job = (select job from emp where ename
+=‘ALLEN’);  //
+ 
+select * from emp where hiredate < ( select hiredate from emp
+where ename = ‘KING’); //
 
 
 
