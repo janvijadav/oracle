@@ -201,12 +201,9 @@ SELECT * FROM KATU E,DEPT D WHERE D.DNAME IN
 
 SELECT * FROM KATU WHERE SAL>(Select SAL FROM KATU WHERE ENAME='BLAKE');
 
-select * from emp where job = (select job from emp where ename
-=‘ALLEN’);  //
+SELECT * FROM KATU WHERE JOB = (Select JOB FROM KATU WHERE ENAME='ALLEN');
  
-select * from emp where hiredate < ( select hiredate from emp
-where ename = ‘KING’); //
-
+SELECT * FROM KATU WHERE HIREDATE < (SELECT HIREDATE FROM KATU WHERE ENAME='KING');
 
 
 
