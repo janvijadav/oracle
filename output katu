@@ -1475,4 +1475,38 @@ SQL> SELECT * FROM KATU WHERE SAL>(Select SAL FROM KATU WHERE ENAME='BLAKE');
 
 
 SQL> 
+
+SQL> SELECT * FROM KATU WHERE JOB = (Select JOB FROM KATU WHERE ENAME='ALLEN');
+
+no rows selected
+
+SQL> 
+SQL> SELECT * FROM KATU WHERE HIREDATE < (SELECT HIREDATE FROM KATU WHERE ENAME='KING');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+SQL> 
 Commit complete.
